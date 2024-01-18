@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medical.Utilities", "src\Medical.Utilities\Medical.Utilities.csproj", "{0BECF9AC-0B0E-49DE-9125-6BE2FF1805F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medical.Identity", "Medical.Identity\Medical.Identity.csproj", "{A6115B86-845A-40A7-9D2E-A34E78AF0C5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medical.Identity", "src\Medical.Identity\Medical.Identity.csproj", "{A6115B86-845A-40A7-9D2E-A34E78AF0C5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
