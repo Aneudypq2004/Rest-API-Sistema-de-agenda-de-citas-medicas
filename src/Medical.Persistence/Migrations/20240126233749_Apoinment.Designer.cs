@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Medical.Api.Migrations
+namespace Medical.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240117020112_inicial")]
-    partial class inicial
+    [Migration("20240126233749_Apoinment")]
+    partial class Apoinment
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,15 +35,18 @@ namespace Medical.Api.Migrations
                     b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PatientId")
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DoctorId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PatientId");
+                    b.HasIndex("DoctorId");
 
                     b.ToTable("Appointments");
                 });
@@ -148,14 +151,14 @@ namespace Medical.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6601cbfa-feba-4ee5-856d-d981415d4d48",
-                            ConcurrencyStamp = "fb52d4d3-9f4d-4fbc-bbf3-9d194aed38e8",
+                            Id = "54f3d15d-8150-4e35-bacd-6906ba16cc2b",
+                            ConcurrencyStamp = "38936e9d-c807-4363-ae27-a300c5c01bad",
                             Name = "Doctor"
                         },
                         new
                         {
-                            Id = "0e5a142d-1c33-4ae0-bcf0-770a5fcb0fd8",
-                            ConcurrencyStamp = "c0bbd81d-3873-4060-8a4e-7ed63d347221",
+                            Id = "cc7e4292-567b-40c8-a003-faacaa7eb4ba",
+                            ConcurrencyStamp = "3132f0b6-53cd-4bea-b313-88c5263d1727",
                             Name = "Patient"
                         });
                 });
@@ -281,7 +284,7 @@ namespace Medical.Api.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins", (string)null);
+                    b.ToTable("UserLogin", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -320,11 +323,11 @@ namespace Medical.Api.Migrations
 
             modelBuilder.Entity("Medical.Domain.Entities.Appointment", b =>
                 {
-                    b.HasOne("Medical.Domain.Entities.User", "Patient")
+                    b.HasOne("Medical.Domain.Entities.User", "Doctor")
                         .WithMany()
-                        .HasForeignKey("PatientId");
+                        .HasForeignKey("DoctorId");
 
-                    b.Navigation("Patient");
+                    b.Navigation("Doctor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

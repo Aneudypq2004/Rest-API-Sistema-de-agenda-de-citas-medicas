@@ -4,16 +4,18 @@ using Medical.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Medical.Api.Migrations
+namespace Medical.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240123190201_inicial")]
+    partial class inicial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,14 +148,14 @@ namespace Medical.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6601cbfa-feba-4ee5-856d-d981415d4d48",
-                            ConcurrencyStamp = "fb52d4d3-9f4d-4fbc-bbf3-9d194aed38e8",
+                            Id = "497e2277-244a-4900-88ad-2386f34e6fd7",
+                            ConcurrencyStamp = "8aec330a-06a2-446c-8e4c-2d89736dffe5",
                             Name = "Doctor"
                         },
                         new
                         {
-                            Id = "0e5a142d-1c33-4ae0-bcf0-770a5fcb0fd8",
-                            ConcurrencyStamp = "c0bbd81d-3873-4060-8a4e-7ed63d347221",
+                            Id = "f4f5744e-43be-4b9e-bb70-2b5151a1d051",
+                            ConcurrencyStamp = "9e392e99-81b7-4aa9-8353-9cd397cfd62b",
                             Name = "Patient"
                         });
                 });
@@ -279,7 +281,7 @@ namespace Medical.Api.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins", (string)null);
+                    b.ToTable("UserLogin", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>

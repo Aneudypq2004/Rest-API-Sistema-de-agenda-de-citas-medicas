@@ -2,7 +2,7 @@
 using Medical.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
-namespace Medical.Application.Contracts
+namespace Medical.Application.Contracts.Infrastructure
 {
     public interface IAuthService
     {

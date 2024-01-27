@@ -5,6 +5,8 @@ using Medical.Persistence.Extensions;
 using Medical.Identity.Extensions;
 using Medical.Infrastructure.Extensions;
 using Medical.Domain.JwtConfiguration;
+using Medical.Api.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +15,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.ConfigureSwagger();
+
 
 builder.Services.Configure<JwtConfiguration>(builder.Configuration.GetSection("JwtOptions"));
 builder.Services.AddInfraestructureServices();
@@ -38,6 +42,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.AddMiddleware();
 

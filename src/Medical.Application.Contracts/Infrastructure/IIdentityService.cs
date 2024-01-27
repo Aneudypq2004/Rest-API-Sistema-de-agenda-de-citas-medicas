@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Medical.Application.Contracts
+namespace Medical.Application.Contracts.Infrastructure
 {
-   public interface IRepositoryAppointment
+    public interface IIdentityService
     {
     }
 }

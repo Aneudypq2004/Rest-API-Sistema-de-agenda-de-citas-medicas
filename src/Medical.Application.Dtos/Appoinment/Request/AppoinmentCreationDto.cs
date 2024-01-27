@@ -4,17 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Medical.Application.Dtos.Appoinment.Response
+namespace Medical.Application.Dtos.Appoinment.Request
 {
-    public class GetAppoinmentsDto
+    public class AppoinmentCreationDto
     {
-        public int Id { get; set; }
-
-        public bool State { get; set; }
+        public Boolean State { get; set; }
 
         public string? Description { get; set; }
 
         public DateTime AppointmentDate { get; set; }
-
     }
 }

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Medical.Application.Contracts
+namespace Medical.Application.Contracts.Persistence
 {
     public interface IUnitOfWork : IDisposable
     {
         IRepositoryAppointment AppointmentRepository { get; }
-        Task SaveChanges();
+        Task<int> SaveChanges();
     }
 }

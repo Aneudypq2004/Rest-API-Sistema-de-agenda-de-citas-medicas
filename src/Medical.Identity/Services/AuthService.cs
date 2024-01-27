@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Medical.Application.Contracts;
 using Medical.Application.Contracts.Infrastructure;
 using Medical.Application.Dtos.User;
 using Medical.Domain.Entities;

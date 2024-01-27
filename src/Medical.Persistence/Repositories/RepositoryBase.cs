@@ -1,4 +1,4 @@
-﻿using Medical.Application.Contracts;
+﻿using Medical.Application.Contracts.Persistence;
 using Medical.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
@@ -20,8 +20,8 @@ namespace Medical.Persistence.Repositories
             this.dbContext = dbContext;
         }
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression) => dbContext.Set<T>().Where(expression).AsNoTracking();
-        
-        public IQueryable<T> GetAll() =>   dbContext.Set<T>().AsNoTracking();
+
+        public IQueryable<T> FindAll() => dbContext.Set<T>().AsNoTracking();
 
 
         public void Create(T entity) =>  dbContext.Set<T>().Add(entity);

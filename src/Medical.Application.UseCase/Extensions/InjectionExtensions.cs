@@ -4,6 +4,7 @@ using MediatR;
 using System.Reflection;
 using Medical.Application.UseCase.Commons.Behaviours;
 using FluentValidation.AspNetCore;
+using FluentValidation;
 
 namespace Medical.Application.UseCase.Extensions
 {
@@ -15,7 +16,7 @@ namespace Medical.Application.UseCase.Extensions
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-            services.AddFluentValidationClientsideAdapters();
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 

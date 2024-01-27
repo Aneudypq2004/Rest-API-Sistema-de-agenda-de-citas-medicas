@@ -1,15 +1,9 @@
-﻿using Medical.Application.Contracts;
+﻿using Medical.Application.Contracts.Persistence;
 using Medical.Persistence.Context;
 using Medical.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Medical.Persistence.Extensions
 {

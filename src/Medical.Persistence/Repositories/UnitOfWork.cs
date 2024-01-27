@@ -1,10 +1,5 @@
-﻿using Medical.Application.Contracts;
+﻿using Medical.Application.Contracts.Persistence;
 using Medical.Persistence.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Medical.Persistence.Repositories
 {
@@ -22,7 +17,7 @@ namespace Medical.Persistence.Repositories
             repositoryAppointment = new Lazy<IRepositoryAppointment>(() => new RepositoryAppointment(context));
         }
 
-        public async Task SaveChanges() =>  await _context.SaveChangesAsync();
+        public async Task<int> SaveChanges() =>  await _context.SaveChangesAsync();
         
         public void Dispose()
         {

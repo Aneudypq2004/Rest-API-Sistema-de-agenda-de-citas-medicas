@@ -6,13 +6,13 @@ namespace Medical.Application.UseCase.Commons.Exceptions
     {
         public IEnumerable<BaseError>? Errors { get; }
 
-        public ValidationException() : base()
+        public ValidationException()
         {
 
             Errors = new List<BaseError>();
         }
 
-        public ValidationException(IEnumerable<BaseError>? errors) : this()
+        public ValidationException(IEnumerable<BaseError>? errors)
         {
            Errors = errors;
             

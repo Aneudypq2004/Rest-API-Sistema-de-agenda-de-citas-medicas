@@ -16,7 +16,7 @@ namespace Medical.Api.ContextFactory
                     .Build();
 
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>().
-                UseSqlServer(configuration.GetConnectionString("MedicalAppointmentDB")!, b => b.MigrationsAssembly("Medical.Api"));
+                UseSqlServer(configuration.GetConnectionString("MedicalAppointmentDB")!);
 
             return new ApplicationDbContext(builder.Options);
         }

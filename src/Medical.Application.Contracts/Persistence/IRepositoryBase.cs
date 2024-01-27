@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
-namespace Medical.Application.Contracts
+namespace Medical.Application.Contracts.Persistence
 {
     public interface IRepositoryBase<T>
     {
-        IQueryable<T> GetAll();
+        IQueryable<T> FindAll();
 
         IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
 

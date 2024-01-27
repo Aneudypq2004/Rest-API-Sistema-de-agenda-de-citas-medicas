@@ -1,4 +1,4 @@
-﻿using Medical.Application.Contracts;
+﻿using Medical.Application.Contracts.Infrastructure;
 using Medical.Application.Dtos.User;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,7 +34,7 @@ namespace Medical.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("/confirm")]
+        [HttpGet("confirm")]
         public async Task<IActionResult> ConfirmAccount(UserForCreationDto userCreation)
         {
             throw new NotImplementedException();

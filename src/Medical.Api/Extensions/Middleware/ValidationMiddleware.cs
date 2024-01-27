@@ -14,11 +14,17 @@ namespace Medical.Api.Extensions.Middleware
             _next = next;
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task InvokeAsync(HttpContext context)
         {
             try
             {
                 await _next.Invoke(context);
+            }
+            catch (ValidationException exception)
+            {
+                context.Response.ContentType = "application.json";
+                context.Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
+                await context.Response.WriteAsJsonAsync(exception.Errors);
             }
             catch (Exception ex)
             {
@@ -27,7 +33,7 @@ namespace Medical.Api.Extensions.Middleware
 
         }
 
-        private static Task HandleExceptionAsync(HttpContext context, Exception exception)
+        private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
 
             var StatusCodeException = exception switch
@@ -36,28 +42,22 @@ namespace Medical.Api.Extensions.Middleware
                 _ => StatusCodes.Status500InternalServerError
             }; ;
 
-            context.Response.ContentType = "application.json";
+         
             context.Response.StatusCode = StatusCodeException;
 
-            return context.Response.WriteAsync(new ErrorDetails
+            await context.Response.WriteAsJsonAsync(new ErrorDetails
             {
                 Message = exception.Message,
-                StatusCodes = StatusCodeException,
-
-            }.ToString());
-            { }
+                StatusCode = StatusCodeException  
+            });
         }
 
     }
 
     public class ErrorDetails
     {
-        public int StatusCodes { get; set; }
+        public int StatusCode { get; set; }
         public string? Message { get; set; }
-
-        public override string ToString()
-        {
-            return JsonSerializer.Serialize(this);
-        }
+      
     }
 }

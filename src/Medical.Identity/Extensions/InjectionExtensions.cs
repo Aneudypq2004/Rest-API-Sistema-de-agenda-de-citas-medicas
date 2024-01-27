@@ -1,4 +1,4 @@
-﻿using Medical.Application.Contracts;
+﻿using Medical.Application.Contracts.Infrastructure;
 using Medical.Domain.Entities;
 using Medical.Domain.JwtConfiguration;
 using Medical.Identity.Services;
