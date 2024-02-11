@@ -12,6 +12,7 @@ namespace Medical.Application.UseCase.UseCases.Appointment.Commands.CreateComman
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+
         public CreateAppoinmentHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
