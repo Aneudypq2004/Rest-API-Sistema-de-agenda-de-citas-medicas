@@ -5,12 +5,12 @@ namespace Medical.Persistence.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApplicationDbContext _context;
+        private readonly MedicalDbContext _context;
         private readonly Lazy<IRepositoryAppointment> repositoryAppointment;
 
         public IRepositoryAppointment AppointmentRepository => repositoryAppointment.Value;
 
-        public UnitOfWork(ApplicationDbContext context)
+        public UnitOfWork(MedicalDbContext context)
         {
             _context = context;
 

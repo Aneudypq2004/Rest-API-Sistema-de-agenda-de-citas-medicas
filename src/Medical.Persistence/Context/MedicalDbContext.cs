@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Medical.Persistence.Context
 {
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class MedicalDbContext : IdentityDbContext<User>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public MedicalDbContext(DbContextOptions<MedicalDbContext> options) : base(options)
         {
         }
 

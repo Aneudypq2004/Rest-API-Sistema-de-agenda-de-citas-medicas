@@ -31,7 +31,7 @@ namespace Medical.Identity.Extensions
                 opt.User.RequireUniqueEmail = true;
 
             })
-            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddEntityFrameworkStores<MedicalDbContext>()
             .AddDefaultTokenProviders();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(config =>

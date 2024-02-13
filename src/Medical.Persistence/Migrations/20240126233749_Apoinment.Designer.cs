@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Medical.Persistence.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(MedicalDbContext))]
     [Migration("20240126233749_Apoinment")]
     partial class Apoinment
     {

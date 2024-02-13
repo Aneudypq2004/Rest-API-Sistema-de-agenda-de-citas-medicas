@@ -11,7 +11,7 @@ namespace Medical.Persistence.Extensions
     {
         public static IServiceCollection AddInjectionPersistence(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(opt =>
+            services.AddDbContext<MedicalDbContext>(opt =>
             {
                 opt.UseSqlServer(configuration.GetConnectionString("MedicalAppointmentDB")!);
             });

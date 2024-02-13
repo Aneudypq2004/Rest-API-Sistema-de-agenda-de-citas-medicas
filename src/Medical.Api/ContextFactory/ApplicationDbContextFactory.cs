@@ -5,20 +5,20 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace Medical.Api.ContextFactory
 {
-    public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<MedicalDbContext>
 
     {
-        public ApplicationDbContext CreateDbContext(string[] args)
+        public MedicalDbContext CreateDbContext(string[] args)
         {
             var configuration = new ConfigurationBuilder()
                     .SetBasePath(Directory.GetCurrentDirectory())
                     .AddJsonFile("appsettings.json")
                     .Build();
 
-            var builder = new DbContextOptionsBuilder<ApplicationDbContext>().
+            var builder = new DbContextOptionsBuilder<MedicalDbContext>().
                 UseSqlServer(configuration.GetConnectionString("MedicalAppointmentDB")!);
 
-            return new ApplicationDbContext(builder.Options);
+            return new MedicalDbContext(builder.Options);
         }
     }
 }
