@@ -2,8 +2,8 @@
 using MediatR;
 using Medical.Application.Dtos.User;
 using Medical.Application.UseCase.Commons.Bases;
-using Medical.Application.UseCase.Commons.Exceptions;
 using Medical.Domain.Entities;
+using Medical.Domain.Exceptions;
 using Microsoft.AspNetCore.Identity;
 
 namespace Medical.Application.UseCase.Features.Auth.Queries.GetByEmail
@@ -25,7 +25,6 @@ namespace Medical.Application.UseCase.Features.Auth.Queries.GetByEmail
             BaseResponse<UserDto> response = new();
 
             var result = await userManager.FindByEmailAsync(request.Email) ?? throw new NotFoundException("The user doesnt exists");
-
 
             response.Data = mapper.Map<UserDto>(result);
 

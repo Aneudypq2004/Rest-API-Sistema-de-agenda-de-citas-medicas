@@ -2,9 +2,8 @@
 using MediatR;
 using Medical.Application.Dtos.User;
 using Medical.Application.UseCase.Commons.Bases;
-using Medical.Application.UseCase.Commons.Exceptions;
-using Medical.Application.UseCase.Features.Auth.Queries.GetByEmail;
 using Medical.Domain.Entities;
+using Medical.Domain.Exceptions;
 using Microsoft.AspNetCore.Identity;
 
 namespace Medical.Application.UseCase.Features.Auth.Queries.GetById

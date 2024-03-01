@@ -14,5 +14,6 @@ namespace Medical.Application.Contracts.Persistence
 
 
         void Remove(T entity);
+        Task<T?> FindById(int Id);
     }
 }

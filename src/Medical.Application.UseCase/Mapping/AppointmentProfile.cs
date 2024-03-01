@@ -8,7 +8,9 @@ namespace Medical.Application.UseCase.Mapping
     {
         public AppointmentProfile()
         {
-            CreateMap<AppoinmentDto, Appointment>();
+            CreateMap<AppoinmentDto, Appointment>().ReverseMap();
+
+            CreateMap<AppoinmentCreationDto, Appointment>();
 
         }
     }

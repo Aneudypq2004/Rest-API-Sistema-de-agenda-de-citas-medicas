@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Medical.Application.UseCase.Features.Auth.Commands.CreateCommand;
+using Medical.Application.UseCase.Features.Auth.Queries.GetById;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 
 namespace Medical.Api.Controllers
@@ -15,14 +17,17 @@ namespace Medical.Api.Controllers
         {
             this.mediator = mediator;
         }
-
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{DoctorId}")]
+        public async Task<ActionResult> Get(string DoctorId)
         {
-            return "value";
+            var result = await mediator.Send(new GetUserByIdQuery()
+            {
+                Id = DoctorId
+            });
+
+            return Ok(result.Data);
         }
 
-        // POST api/<DoctorController>
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] CreateDoctorCommand command)
         {
@@ -37,16 +42,11 @@ namespace Medical.Api.Controllers
                 }
 
                 return BadRequest(ModelState);
-
             }
 
             return NoContent();
         }
 
-        // DELETE api/<DoctorController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+     
     }
 }

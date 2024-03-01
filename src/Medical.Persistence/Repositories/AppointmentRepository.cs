@@ -11,6 +11,10 @@ namespace Medical.Persistence.Repositories
         public AppointmentRepository(MedicalDbContext dbContext) : base(dbContext)
         {
         }
-        
+
+        public async Task<IEnumerable<Appointment>> GetAppoinments(string id)
+        {
+            return await dbContext.Appointments!.Where(a => a.DoctorId == id).ToListAsync();
+        }
     }
 }

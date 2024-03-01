@@ -9,6 +9,8 @@ namespace Medical.Domain.Entities
 
         public string? Description { get; set; }
 
+        public DateTime AppoinmentDate { get; set; }
+
         public string? DoctorId { get; set; }
         public User? Doctor { get; set; }
 

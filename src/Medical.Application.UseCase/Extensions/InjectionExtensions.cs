@@ -21,9 +21,11 @@ namespace Medical.Application.UseCase.Extensions
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
-            services.AddIdentity<Doctor, IdentityRole>(opt =>
+            services.AddIdentity<User, IdentityRole>(opt =>
             {
                 opt.Password.RequiredLength = 8;
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.User.RequireUniqueEmail = true;
 
             })
            .AddDefaultTokenProviders()

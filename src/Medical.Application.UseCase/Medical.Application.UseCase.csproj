@@ -24,8 +24,4 @@
     <ProjectReference Include="..\Medical.Persistence\Medical.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Auth\Queries\" />
-  </ItemGroup>
-
 </Project>
