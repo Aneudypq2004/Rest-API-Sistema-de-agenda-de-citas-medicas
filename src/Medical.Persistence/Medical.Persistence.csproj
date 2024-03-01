@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Medical.Application.Contracts\Medical.Application.Contracts.csproj" />
     <ProjectReference Include="..\Medical.Domain\Medical.Domain.csproj" />
   </ItemGroup>
 

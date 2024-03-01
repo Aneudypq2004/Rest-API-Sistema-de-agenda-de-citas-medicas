@@ -1,5 +1,4 @@
-﻿using Medical.Persistence;
-using Medical.Persistence.Context;
+﻿using Medical.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 

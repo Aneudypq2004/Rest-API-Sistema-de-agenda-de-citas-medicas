@@ -38,7 +38,6 @@ namespace Medical.UnitTest
                     Id = i,
                     State = true, 
                     Description = $"Descripción de la cita {i}",
-                    AppointmentDate = DateTime.Now.AddDays(i),
                     DoctorId = $"Doctor{i}"
                 };
 

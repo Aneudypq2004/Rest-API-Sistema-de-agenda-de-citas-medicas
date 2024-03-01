@@ -6,15 +6,15 @@ namespace Medical.Persistence.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly MedicalDbContext _context;
-        private readonly Lazy<IRepositoryAppointment> repositoryAppointment;
+        private readonly Lazy<IAppointmentRepository> repositoryAppointment;
 
-        public IRepositoryAppointment AppointmentRepository => repositoryAppointment.Value;
+        public IAppointmentRepository AppointmentRepository => repositoryAppointment.Value;
 
         public UnitOfWork(MedicalDbContext context)
         {
             _context = context;
 
-            repositoryAppointment = new Lazy<IRepositoryAppointment>(() => new RepositoryAppointment(context));
+            repositoryAppointment = new Lazy<IAppointmentRepository>(() => new AppointmentRepository(context));
         }
 
         public async Task<int> SaveChanges() =>  await _context.SaveChangesAsync();

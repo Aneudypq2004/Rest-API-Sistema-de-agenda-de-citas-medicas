@@ -25,7 +25,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Medical.Application.UseCase\Medical.Application.UseCase.csproj" />
-		<ProjectReference Include="..\Medical.Identity\Medical.Identity.csproj" />
 		<ProjectReference Include="..\Medical.Infrastructure\Medical.Infrastructure.csproj" />
 		<ProjectReference Include="..\Medical.Persistence\Medical.Persistence.csproj" />
 	</ItemGroup>

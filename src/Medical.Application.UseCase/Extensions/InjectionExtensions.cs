@@ -1,10 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using FluentValidation;
 using MediatR;
-using System.Reflection;
 using Medical.Application.UseCase.Commons.Behaviours;
-using FluentValidation.AspNetCore;
-using FluentValidation;
+using Medical.Domain.Entities;
+using Medical.Persistence.Context;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Medical.Application.UseCase.Extensions
 {
@@ -20,7 +21,18 @@ namespace Medical.Application.UseCase.Extensions
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
+            services.AddIdentity<Doctor, IdentityRole>(opt =>
+            {
+                opt.Password.RequiredLength = 8;
+
+            })
+           .AddDefaultTokenProviders()
+           .AddEntityFrameworkStores<MedicalDbContext>();
+
+
+
             return services;
+
         }
     }
 }

@@ -1,19 +1,22 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace Medical.IntegrationTests
 {
-   public class CustomWebApplicationFactory : WebApplicationFactory<Program>
+    public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
+            builder.UseEnvironment("Testing");
 
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath("")
-                .AddEnvironmentVariables()
-                .Build();
-
+            base.ConfigureWebHost(builder);
         }
+
+        protected override IHost CreateHost(IHostBuilder builder)
+        {
+            return base.CreateHost(builder);
+        }
+
     }
 }

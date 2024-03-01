@@ -2,7 +2,6 @@
 using Medical.Api.Extensions.Middleware;
 using Medical.Application.UseCase.Extensions;
 using Medical.Persistence.Extensions;
-using Medical.Identity.Extensions;
 using Medical.Infrastructure.Extensions;
 using Medical.Domain.JwtConfiguration;
 using Medical.Api.Extensions;
@@ -19,15 +18,18 @@ builder.Services.ConfigureSwagger();
 
 
 builder.Services.Configure<JwtConfiguration>(builder.Configuration.GetSection("JwtOptions"));
+
 builder.Services.AddInfraestructureServices();
+
 builder.Services.AddInjectionApplication();
+
 builder.Services.AddInjectionPersistence(builder.Configuration);
 
 builder.Services.AddAuthorization(opt =>
 {
     opt.AddPolicy("DoctorOnly", policy => policy.RequireClaim("Doctor"));
 });
-builder.Services.AddInjectionIdentity(builder.Configuration);
+
 
 var app = builder.Build();
 

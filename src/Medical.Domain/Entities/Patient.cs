@@ -2,7 +2,7 @@
 {
     public class Patient : User
     {
-        public Doctor Doctor { get; set; }
-        public ICollection<Appointment> Appointments { get; set; }
+        public Doctor? Doctor { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Medical.Domain.Entities;
-using Medical.Persistence.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -15,8 +14,6 @@ namespace Medical.Persistence.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            builder.ApplyConfiguration(new RolesConfiguration());
 
             builder.Entity<IdentityRole>(u => { u.ToTable("Roles"); });
 

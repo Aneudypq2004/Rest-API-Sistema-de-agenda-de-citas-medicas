@@ -25,10 +25,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Medical.Application.Contracts\Medical.Application.Contracts.csproj" />
     <ProjectReference Include="..\..\src\Medical.Application.Dtos\Medical.Application.Dtos.csproj" />
     <ProjectReference Include="..\..\src\Medical.Domain\Medical.Domain.csproj" />
     <ProjectReference Include="..\..\src\Medical.Persistence\Medical.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
 
